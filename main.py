@@ -3,26 +3,22 @@ import discord
 from keep_alive import keep_alive
 import random
 from replit import db
-
 from discord.ext import commands
-from dotenv import load_dotenv
 
 bot = commands.Bot(command_prefix="$")
-
-# LOADS THE .ENV FILE THAT RESIDES ON THE SAME LEVEL AS THE SCRIPT.
-load_dotenv()
 
 initial_extensions = [
     'extensions.greetings',
     'extensions.ping',
     'extensions.joke',
     'extensions.crud',
+    'extensions.embed',
+    'extensions.tictactoe'
 ]
 
 if __name__ == '__main__':
 	for extension in initial_extensions:
 		bot.load_extension(extension)
-
 
 @bot.event
 async def on_ready():
@@ -51,7 +47,6 @@ async def on_message(message):
             response = 'dime'
 
         await message.channel.send(response)
-
 
     await bot.process_commands(message)
 
