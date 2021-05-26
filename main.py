@@ -4,17 +4,9 @@ from keep_alive import keep_alive
 import random
 from replit import db
 from discord.ext import commands
+from extensions._REGISTER import initial_extensions
 
 bot = commands.Bot(command_prefix="$")
-
-initial_extensions = [
-    'extensions.greetings',
-    'extensions.ping',
-    'extensions.joke',
-    'extensions.crud',
-    'extensions.embed',
-    'extensions.tictactoe'
-]
 
 if __name__ == '__main__':
 	for extension in initial_extensions:
@@ -44,7 +36,7 @@ async def on_message(message):
                 response += random.choice(db[new_key])
 
         if response == '':
-            response = 'dime'
+            response = '🕵️‍♂️ $help'
 
         await message.channel.send(response)
 
@@ -53,6 +45,8 @@ async def on_message(message):
 
 keep_alive()
 
+
 token = os.environ['DISCORD_BOT_SECRET']
 
 bot.run(token)
+
