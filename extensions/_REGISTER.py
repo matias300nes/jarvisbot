@@ -7,5 +7,6 @@ initial_extensions = [
     'extensions.crud',
     'extensions.embed',
     'extensions.games',
-    'extensions.utils'
+    'extensions.utils',
+    'extensions.talking',
 ]
